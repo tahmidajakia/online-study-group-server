@@ -113,6 +113,15 @@ async function run() {
 
       })
 
+     app.get('/assignment', async(req,res) => {
+      const filter = req.query.filter
+      let query ={}
+      if (filter) query = {difficulty_level:filter}
+      const result = await assignmentCollection.find(query).toArray();
+      res.send(result)
+
+     })
+
 
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
