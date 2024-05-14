@@ -6,7 +6,20 @@ require('dotenv').config();
 
 
 // middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      // "https://online-study-group-assignment-server.vercel.app",
+      "https://online-study-group-assignment.web.app",
+      "https://online-study-group-assignment.firebaseapp.com"
+    ],
+    credentials: true,
+  })
+);
+
+
 app.use(express.json());
 
 console.log(process.env.DB_PASS)
@@ -113,20 +126,20 @@ async function run() {
 
       })
 
-     app.get('/assignment', async(req,res) => {
-      const filter = req.query.filter
-      let query ={}
-      if (filter) query = {difficulty_level:filter}
-      const result = await assignmentCollection.find(query).toArray();
-      res.send(result)
+    //  app.get('/assignment', async(req,res) => {
+    //   const filter = req.query.filter
+    //   let query ={}
+    //   if (filter) query = {difficulty_level:filter}
+    //   const result = await assignmentCollection.find(query).toArray();
+    //   res.send(result)
 
-     })
+    //  })
 
 
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
+    // await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     // Ensures that the client will close when you finish/error
