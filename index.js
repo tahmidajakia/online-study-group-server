@@ -22,7 +22,7 @@ app.use(
 
 app.use(express.json());
 
-console.log(process.env.DB_PASS)
+console.log(process.env.DB_PASS);
 
 
 
@@ -125,6 +125,8 @@ async function run() {
         res.send(result)
 
       })
+
+      
 
     //  app.get('/assignment', async(req,res) => {
     //   const filter = req.query.filter
