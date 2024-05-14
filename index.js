@@ -50,7 +50,7 @@ async function run() {
         const result = await assignmentCollection.find().toArray()
 
         res.send(result)
-    })
+    });
 
     // save a assignment data in db
 
