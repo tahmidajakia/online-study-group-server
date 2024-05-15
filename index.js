@@ -103,12 +103,12 @@ async function run() {
 
       // delete assignment by specific user
 
-      app.delete('/assignment/:email', async(req,res) => {
-        const email = req.params.email;
-        const query = {_id: new ObjectId(email)};
+      app.delete('/assignment/:id', async(req,res) => {
+        const id = req.params.id;
+        const query = {_id: new ObjectId(id)};
         const result = await assignmentCollection.deleteOne(query)
         res.send(result)
-      })
+      });
 
       // update assignment in db
       app.put('/assignment/:id', async(req,res) => {
