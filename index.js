@@ -99,7 +99,7 @@ async function run() {
         }
         const result = await takeAssignment.updateOne(query,updateDoc)
         res.send(result)
-      })
+      });
 
       // delete assignment by specific user
 
@@ -124,7 +124,7 @@ async function run() {
         const result = await assignmentCollection.updateOne(query,updateDoc,option)
         res.send(result)
 
-      })
+      });
 
       
 
@@ -154,8 +154,8 @@ run().catch(console.dir);
 
 app.get('/', (req, res) => {
     res.send('Online study group server is running')
-})
+});
 
 app.listen(port,() => {
     console.log(`Study group is running on:${port}`)
-})
+});
