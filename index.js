@@ -59,7 +59,7 @@ async function run() {
 
         const result = await assignmentCollection.insertOne(assignmentData)
         res.send(result)
-    })
+    });
 
     app.get('/assignment/:id', async(req,res) =>{
         const id = req.params.id;
